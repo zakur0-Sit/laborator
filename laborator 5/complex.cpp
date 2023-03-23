@@ -150,11 +150,14 @@ std::ostream& operator<<(std::ostream& out, const Complex& complex)
 {
     if(complex.is_real()) 
     {
-        out << complex.real();
+         out << complex.real();
     }
     else 
     {
-     out << complex.real() << (complex.imag() < 0 ? "" : "+") << complex.imag() << "i";
+        if (complex.real() != 0)
+            out << complex.real() << (complex.imag() < 0 ? "" : "+") << complex.imag() << "i";
+        else 
+            out<< complex.imag() << "i";
     }
     return out;
 }
